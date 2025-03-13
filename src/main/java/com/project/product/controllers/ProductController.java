@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -21,7 +23,7 @@ public class ProductController {
     }
 
     @GetMapping
-    String getAllProducts(){
+    List<GenericProductDto> getAllProducts(){
         return productService.getAllProducts();
     }
 
@@ -30,8 +32,9 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
-    void addProduct(){
-
+    @PostMapping
+    GenericProductDto addProduct(@RequestBody GenericProductDto product){
+        return productService.addProduct(product);
     }
 
     void updateProduct(){
