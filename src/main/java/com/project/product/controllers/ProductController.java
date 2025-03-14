@@ -1,11 +1,8 @@
 package com.project.product.controllers;
 
 
-import com.project.product.dtos.FakeStoreProductServiceDto;
 import com.project.product.dtos.GenericProductDto;
-import com.project.product.service.FakeStoreProductService;
 import com.project.product.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,13 +34,21 @@ public class ProductController {
         return productService.addProduct(product);
     }
 
-    void updateProduct(){
-
+    @PutMapping("/{id}")
+    GenericProductDto updateProduct(@PathVariable("id") long id,@RequestBody GenericProductDto product){
+       return productService.updateProduct(id,product);
     }
 
-    void deleteProduct(){
-
+    @DeleteMapping("/{id}")
+    GenericProductDto deleteProduct(@PathVariable("id") long id){
+       return productService.deleteProduct(id);
     }
+
+//
+//    @ExceptionHandler(ProductNotFoundException.class)
+//    ResponseEntity handleProductNotFoundException(ProductNotFoundException e){
+//        return new ResponseEntity<>(new ExceptionDto(HttpStatus.NOT_FOUND,e.getMessage()),HttpStatus.NOT_FOUND);
+//    }
 
 
 }
