@@ -1,0 +1,21 @@
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+    datasource:
+        url: jdbc:mysql://localhost:3306/capstone
+        username: root
+        password: adminroot
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+    application:
+        name: Product
+
+    url:
+        fakeStore:
+            specificProduct: "https://fakestoreapi.com/products/{id}"
+            product: "https://fakestoreapi.com/products"
+
+server:
+    port: 8080
