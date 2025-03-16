@@ -1,6 +1,9 @@
 package com.project.product;
 
-import com.project.product.inhertancerelations.tableperclass.*;
+import com.project.product.inhertancerelations.tableperclass.MentorRepository;
+import com.project.product.inhertancerelations.tableperclass.StudentRepository;
+import com.project.product.inhertancerelations.tableperclass.TaRepository;
+import com.project.product.inhertancerelations.tableperclass.UserRepository;
 import com.project.product.models.Category;
 import com.project.product.models.Price;
 import com.project.product.models.Product;
@@ -8,15 +11,12 @@ import com.project.product.repositories.CategoryRepository;
 import com.project.product.repositories.PriceRepository;
 import com.project.product.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @AllArgsConstructor
 @SpringBootApplication
@@ -38,6 +38,7 @@ public class ProductApplication implements ApplicationRunner {
     }
 
     @Override
+    //@Transactional
     public void run(ApplicationArguments args) throws Exception {
 //        Mentor mentor = new Mentor();
 //        mentor.setName("Rishabh");
@@ -63,22 +64,27 @@ public class ProductApplication implements ApplicationRunner {
 //        for (User user1 : users) {
 //
 //        }
+//
+//        Category category = new Category();
+//        category.setName("Electronics");
+//        Category savedCategory = categoryRepository.save(category);
+//
+//        Price price = new Price();
+//        price.setValue(1000.0);
+//        price.setCurrency("INR");
+//
+//        Product product = new Product();
+//        product.setName("Laptop");
+//        product.setDescription("Dell Laptop");
+//        product.setCategory(savedCategory);
+//        product.setPrice(price);
+//
+//        productRepository.save(product);
 
-        Category category = new Category();
-        category.setName("Electronics");
-        Category savedCategory = categoryRepository.save(category);
 
-        Price price = new Price();
-        price.setCurrency("INR");
-        price.setValue(100000.0);
-        Price savedPrice = priceRepository.save(price);
+        List<Product> product = productRepository.findAllByNameAndDescription("Laptop", "Dell Laptop");
 
-        Product product = new Product();
-        product.setProductName("Iphone 15 pro");
-        product.setProductDescription("Fasted Iphone ever");
-        product.setProductCategory(savedCategory);
-        product.setProductPrice(savedPrice);
+        System.out.println(product);
 
-        productRepository.save(product);
     }
 }
