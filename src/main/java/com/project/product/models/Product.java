@@ -29,6 +29,8 @@ public class Product extends BaseModel{
     @Column
     private String image;
 
+    private int inventory_count;
+
 
 
 }

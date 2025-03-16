@@ -82,9 +82,9 @@ public class ProductApplication implements ApplicationRunner {
 //        productRepository.save(product);
 
 
-        List<Product> product = productRepository.findAllByNameAndDescription("Laptop", "Dell Laptop");
-
-        System.out.println(product);
+//        List<Product> product = productRepository.findAllByNameAndDescription("Laptop", "Dell Laptop");
+//
+//        System.out.println(product);
 
     }
 }
