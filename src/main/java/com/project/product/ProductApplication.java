@@ -18,17 +18,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
-@AllArgsConstructor
 @SpringBootApplication
-public class ProductApplication implements ApplicationRunner {
+public class ProductApplication{
 
-    private MentorRepository repository;
-    private StudentRepository studentRepository;
-    private TaRepository taRepository;
-    private UserRepository userRepository;
-    private final CategoryRepository categoryRepository;
-    private final ProductRepository productRepository;
-    private final PriceRepository priceRepository;
+//    private MentorRepository repository;
+//    private StudentRepository studentRepository;
+//    private TaRepository taRepository;
+//    private UserRepository userRepository;
+//    private final CategoryRepository categoryRepository;
+//    private final ProductRepository productRepository;
+//    private final PriceRepository priceRepository;
 
     //    ProductApplication(@Qualifier("tpc_mentorRepository") MentorRepository repository) {
 //        this.repository = repository;
@@ -36,10 +35,10 @@ public class ProductApplication implements ApplicationRunner {
     public static void main(String[] args) {
         SpringApplication.run(ProductApplication.class, args);
     }
-
-    @Override
-    //@Transactional
-    public void run(ApplicationArguments args) throws Exception {
+//
+//    @Override
+//    //@Transactional
+//    public void run(ApplicationArguments args) throws Exception {
 //        Mentor mentor = new Mentor();
 //        mentor.setName("Rishabh");
 //        mentor.setEmail("rishabh@gmail.com");
@@ -85,6 +84,4 @@ public class ProductApplication implements ApplicationRunner {
 //        List<Product> product = productRepository.findAllByNameAndDescription("Laptop", "Dell Laptop");
 //
 //        System.out.println(product);
-
-    }
 }
