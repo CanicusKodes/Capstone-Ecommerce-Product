@@ -2,6 +2,7 @@ package com.project.product.repositories;
 
 import com.project.product.models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
 
     @Override
     Product save(Product product);
-    
+
     List<Product> findAllByNameAndDescription(String Name, String Description);
 }

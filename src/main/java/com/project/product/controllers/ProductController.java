@@ -3,7 +3,11 @@ package com.project.product.controllers;
 
 import com.project.product.dtos.GenericProductDto;
 import com.project.product.service.ProductService;
+import com.sun.net.httpserver.HttpsServer;
+import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,8 +29,8 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    GenericProductDto getProductById(@PathVariable("id") long id){
-        return productService.getProductById(id);
+    GenericProductDto getProductById(@RequestHeader(HttpHeaders.AUTHORIZATION) String token, @PathVariable("id") long id){
+        return productService.getProductById(token,id);
     }
 
     @PostMapping
