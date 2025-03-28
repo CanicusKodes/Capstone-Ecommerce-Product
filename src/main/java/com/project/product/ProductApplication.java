@@ -1,22 +1,8 @@
 package com.project.product;
 
-import com.project.product.inhertancerelations.tableperclass.MentorRepository;
-import com.project.product.inhertancerelations.tableperclass.StudentRepository;
-import com.project.product.inhertancerelations.tableperclass.TaRepository;
-import com.project.product.inhertancerelations.tableperclass.UserRepository;
-import com.project.product.models.Category;
-import com.project.product.models.Price;
-import com.project.product.models.Product;
-import com.project.product.repositories.CategoryRepository;
-import com.project.product.repositories.PriceRepository;
-import com.project.product.repositories.ProductRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.List;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class ProductApplication{

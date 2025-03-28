@@ -3,6 +3,8 @@ package com.project.product.service;
 import com.project.product.dtos.FakeStoreProductServiceDto;
 import com.project.product.dtos.GenericProductDto;
 import com.project.product.exceptions.ProductNotFoundException;
+import com.project.product.models.Category;
+import com.project.product.models.Price;
 import com.project.product.security.JWTObject;
 import com.project.product.security.TokenValidator;
 import com.project.product.thirdPartyClients.fakeStoreClient.FakeStoreAdapterClient;
@@ -18,8 +20,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
-@Primary
+//@Primary
 @Service("fakeStoreProductService")
 public class FakeStoreProductService implements ProductService{
 
@@ -34,11 +37,11 @@ public class FakeStoreProductService implements ProductService{
 
     private GenericProductDto convertToGeneric(FakeStoreProductServiceDto fakeStoreEntity) {
         GenericProductDto genericProductDto = new GenericProductDto();
-        genericProductDto.setId(fakeStoreEntity.getId());
+//        genericProductDto.setId(fakeStoreEntity.getId());
         genericProductDto.setTitle(fakeStoreEntity.getTitle());
         genericProductDto.setDescription(fakeStoreEntity.getDescription());
-        genericProductDto.setPrice(fakeStoreEntity.getPrice());
-        genericProductDto.setCategory(fakeStoreEntity.getCategory());
+        genericProductDto.setPrice(new Price(fakeStoreEntity.getPrice()));
+        genericProductDto.setCategory(new Category(fakeStoreEntity.getCategory()));
         genericProductDto.setImage(fakeStoreEntity.getImage());
         return genericProductDto;
     }
@@ -54,10 +57,15 @@ public class FakeStoreProductService implements ProductService{
     }
 
     @Override
-    public GenericProductDto getProductById(String token,long id) {
-        Optional<JWTObject> jwtObject = tokenValidator.validate(token);
-        return convertToGeneric(fakeStoreClient.getProductById(id));
+    public GenericProductDto getProductById(String token, UUID id) {
+        return null;
     }
+
+//    @Override
+//    public GenericProductDto getProductById(String token,long id) {
+//        Optional<JWTObject> jwtObject = tokenValidator.validate(token);
+//        return convertToGeneric(fakeStoreClient.getProductById(id));
+//    }
 
 
 
@@ -67,14 +75,15 @@ public class FakeStoreProductService implements ProductService{
     }
 
     @Override
-    public GenericProductDto updateProduct(Long id,GenericProductDto genericProduct) {
-
-        return convertToGeneric(fakeStoreClient.updateProduct(id,genericProduct));
+    public GenericProductDto updateProduct(UUID id,GenericProductDto genericProduct) {
+    return null;
+//        return convertToGeneric(fakeStoreClient.updateProduct(id,genericProduct));
     }
 
     @Override
-    public GenericProductDto deleteProduct(long id) {
-        return convertToGeneric(fakeStoreClient.deleteProduct(id));
+    public GenericProductDto deleteProduct(UUID id) {
+        return null;
+//        return convertToGeneric(fakeStoreClient.deleteProduct(id));
     }
 
 

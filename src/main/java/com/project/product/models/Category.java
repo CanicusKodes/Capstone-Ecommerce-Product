@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -13,10 +14,14 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category extends BaseModel{
+public class Category extends BaseModel implements Serializable {
    @Column(unique = true)
    private String name;
 
    @OneToMany(fetch = jakarta.persistence.FetchType.EAGER, mappedBy = "category")
    private List<Product> products;
+
+   public Category(String categoryName) {
+      this.name = categoryName;
+   }
 }

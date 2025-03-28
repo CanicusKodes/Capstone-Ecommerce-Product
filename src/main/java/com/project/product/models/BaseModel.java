@@ -19,4 +19,5 @@ public class BaseModel {
     @GenericGenerator(name = "id", strategy = "uuid2")
     @Column(name = "id",columnDefinition = "BINARY(16)", nullable = false, updatable = false)
     public UUID id;
+
 }

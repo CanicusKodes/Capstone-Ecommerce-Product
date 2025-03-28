@@ -1,10 +1,15 @@
 spring:
+    security:
+        oauth2:
+            resourceserver:
+                jwt:
+                    issuer-uri: http://localhost:8080
     jpa:
         hibernate:
-            ddl-auto: none #can be update or validate or delete
+            ddl-auto: update #can be update or validate or delete
         show-sql: true
     datasource:
-        url: jdbc:mysql://localhost:3306/capstone
+        url: jdbc:mysql://localhost:3306/capstone_products
         username: root
         password: adminroot
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -16,6 +21,14 @@ spring:
         fakeStore:
             specificProduct: "https://fakestoreapi.com/products/{id}"
             product: "https://fakestoreapi.com/products"
+    data:
+        redis:
+            host: localhost
+            port: 6379
 
 server:
-    port: 8080
+    port: 9090
+
+
+#openseach:
+#    uri:
