@@ -39,9 +39,9 @@ public class Product extends BaseModel implements Serializable {
         GenericProductDto genericProductDto = new GenericProductDto();
         genericProductDto.setTitle(product.getName());
         genericProductDto.setDescription(product.getDescription());
-        genericProductDto.setCategory(product.getCategory());
+        genericProductDto.setCategory(product.getCategory().getName());
         genericProductDto.setImage(product.getImage());
-        genericProductDto.setPrice(product.getPrice());
+        genericProductDto.setPrice(product.getPrice().getValue());
         genericProductDto.setId(product.getId());
         return genericProductDto;
     }

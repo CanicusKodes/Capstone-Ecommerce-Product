@@ -16,8 +16,8 @@ public class GenericProductDto  implements Serializable {
     private UUID id;
     private String title;
     private String description;
-    private Price price;
-    private Category category;
+    private Double price;
+    private String category;
     private String image;
 
 

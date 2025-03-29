@@ -14,4 +14,5 @@ public interface CategoryRepository extends JpaRepository<Category, UUID> {
     Category save(Category category);
 
 
+    Category findByName(String name);
 }
